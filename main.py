@@ -1,13 +1,14 @@
 class Payroll:
 
-    def __init__(self, employeeName, employeeID, salary):
+    def __init__(self, firstName, secondName, employeeID, salary):
 
-        self.employeeName = employeeName
+        self.firstName = firstName
+        self.secondName = secondName
         self.employeeID = employeeID
         self.salary = salary
 
     def DisplayInfo(self):
 
-        print(f"Name: {self.employeeName}\tID: {self.employeeID}\tSalary: {self.salary}")
+        print(f"Name: {self.firstName,self.secondName}\tID: {self.employeeID}\tSalary: {self.salary}")
 
     

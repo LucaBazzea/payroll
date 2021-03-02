@@ -1,3 +1,6 @@
+from querystrings import registerEmployee, employeeSalary
+import MySQLdb
+
 class Date:
 
     def __init__(self, day, month, year):
@@ -8,7 +11,7 @@ class Date:
 
     def DisplayDate(self):
 
-        return(f"{self.day}/{self.month}/{self.year}")
+        return(str(self.day) + "/" + str(self.month) + "/" + str(self.year))
 
 class Employee:
 
@@ -22,7 +25,22 @@ class Employee:
 
     def DisplayEmployee(self):
 
-        print(" Name: " + self.firstName + " " + self.lastName + " DOB: " + self.DOB.DisplayDate() + " ID: " + str(self.employeeID))
+        print("Name: " + self.firstName + " " + self.lastName + " DOB: " + self.DOB.DisplayDate() + " ID: " + str(self.employeeID))
+
+    def installEmployee(self):
+
+        try:
+            sql = "INSERT INTO employee(ID, firstName, lastName, DOB, employDate) VALUES(%s, %s, %s, %s, %s)"
+            values = (self.employeeID, self.firstName, self.lastName, self.DOB, self.employmentDate)
+            connect = MySQLdb.connect(db = "xeenlo",user = "root",password = "")
+            cursor = connect.cursor()
+            cursor.execute(sql, values)
+            connect.commit()
+
+        except Exception as e: 
+            print(e)
+            print("ERROR failed to connect to database")
+    
 
 class HourlyEmployee(Employee):
 
@@ -41,6 +59,19 @@ class HourlyEmployee(Employee):
 
         return salaryPerMonth
 
+    #def installEmployee(self):
+
+       # Employee.installEmployee(self)
+
+        # try:
+        #     connect = MySQLdb.connect(db = "xeenlo",user = "root",password = "")
+        #     cursor = connect.cursor()
+        #     cursor.execute(employeeSalary.format(self.employeeID, self.hourlyRate))
+
+        # except:
+        #     print("ERROR failed to connect to database")
+
+
 class MonthlyEmployee(Employee):
 
     def __init__(self, MonthlySalary, firstName, lastName, DOB, employeeID, employmentDate):
@@ -55,4 +86,16 @@ class MonthlyEmployee(Employee):
     def SalaryPerMonth(self):
 
         return self.MonthlySalary
+
+    # def installEmployee(self):
+
+    #     Employee.installEmployee(self)
+
+        # try:
+        #     connect = MySQLdb.connect(db = "xeenlo",user = "root",password = "")
+        #     cursor = connect.cursor()
+        #     cursor.execute(employeeSalary.format(self.employeeID, self.MonthlySalary))
+
+        # except:
+        #     print("ERROR failed to connect to database")""" 
 

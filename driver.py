@@ -1,4 +1,6 @@
 from main import Date, Employee, HourlyEmployee, MonthlyEmployee
+from querystrings import registerEmployee, employeeSalary
+import sys
 
 def MainMethod():
 
@@ -8,53 +10,133 @@ def MainMethod():
 
         if option == 1:
 
-            FirstName = input("First Name: ")
-            LastName = input("Last Name: ")
+            try:
+                FirstName = input("First Name: ")
+            except:
+                print("ERROR")
+            
+            try:
+                LastName = input("Last Name: ")
+            except:
+                print("ERROR")
 
             DOB = {}
-            print("Date of birth: ")
-            DOB["Day"] = int(input("Day: "))
-            DOB["Month"] = int(input("Month: "))
-            DOB["Year"] = int(input("Year: "))
+            print("Date of Birth: ")
 
-            EmployeeID = (input("ID: "))
+            try:
+                DOB["Day"] = int(input("Day: "))
+            except:
+                print("ERROR")
+            
+            try:
+                DOB["Month"] = int(input("Month: "))
+            except:
+                print("ERROR")
+
+            try:
+                DOB["Year"] = int(input("Year: "))
+            except:
+                print("ERROR")
+
+            try:
+                EmployeeID = (input("ID: "))
+            except:
+                print("ERROR")
 
             EmploymentDate = {}
-            EmploymentDate["Day"] = int(input("Day: "))
-            EmploymentDate["Month"] = int(input("Month: "))
-            EmploymentDate["Year"] = int(input("Year: "))
+            print("Date of Employment: ")
 
-            MonthlySalary = float(input("Monthly Salary: "))
+            try:
+                EmploymentDate["Day"] = int(input("Day: "))
+            except:
+                print("ERROR")
+
+            try:
+                EmploymentDate["Month"] = int(input("Month: "))
+            except:
+                print("ERROR")
+
+            try:
+                EmploymentDate["Year"] = int(input("Year: "))
+            except:
+                print("ERROR")
+
+            try:
+                MonthlySalary = float(input("Monthly Salary: "))
+            except:
+                print("ERROR")
 
             Employee1 = MonthlyEmployee(MonthlySalary, FirstName, LastName, DOB, EmployeeID, EmploymentDate)
 
             Employee1.DisplayEmployee()
+            Employee1.installEmployee()
 
         else:
 
-            FirstName = input("First Name: ")
-            LastName = input("Last Name: ")
+            try:
+                FirstName = input("First Name: ")
+            except:
+                print("ERROR")
+            
+            try:
+                LastName = input("Last Name: ")
+            except:
+                print("ERROR")
 
             DOB = {}
-            print("Date of birth: ")
-            DOB["Day"] = int(input("Day: "))
-            DOB["Month"] = int(input("Month: "))
-            DOB["Year"] = int(input("Year: "))
+            print("Date of Birth: ")
 
-            EmployeeID = (input("ID: "))
+            try:
+                DOB["Day"] = int(input("Day: "))
+            except:
+                print("ERROR")
+            
+            try:
+                DOB["Month"] = int(input("Month: "))
+            except:
+                print("ERROR")
+
+            try:
+                DOB["Year"] = int(input("Year: "))
+            except:
+                print("ERROR")
+
+            try:
+                EmployeeID = (input("ID: "))
+            except:
+                print("ERROR")
 
             EmploymentDate = {}
-            EmploymentDate["Day"] = int(input("Day: "))
-            EmploymentDate["Month"] = int(input("Month: "))
-            EmploymentDate["Year"] = int(input("Year: "))
+            print("Date of Employment: ")
 
-            HourlyRate = float(input("Hourly Rate: "))
+            try:
+                EmploymentDate["Day"] = int(input("Day: "))
+            except:
+                print("ERROR")
+
+            try:
+                EmploymentDate["Month"] = int(input("Month: "))
+            except:
+                print("ERROR")
+
+            try:
+                EmploymentDate["Year"] = int(input("Year: "))
+            except:
+                print("ERROR")
+
+            try:
+                HourlyRate = float(input("Hourly Rate: "))
+            except:
+                print("ERROR")
 
             Employee1 = HourlyEmployee(HourlyRate, FirstName, LastName, DOB, EmployeeID, EmploymentDate)
 
             Employee1.DisplayEmployee()
+            Employee1.installEmployee()
 
 if __name__=="__main__":
+
+    sys.setrecursionlimit(1500)
 
     MainMethod()
 

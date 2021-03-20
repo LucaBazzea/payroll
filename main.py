@@ -27,6 +27,7 @@ class Employee:
 
         print("Name: " + self.firstName + " " + self.lastName + " DOB: " + self.DOB.DisplayDate() + " ID: " + str(self.employeeID))
 
+    # Uploads data captured from driver.py
     def installEmployee(self):
 
         try:
